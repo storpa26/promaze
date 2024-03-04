@@ -157,7 +157,7 @@ export default function TeacherReg() {
                             type="checkbox"
                             value=""
                             className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300"
-                            required=""
+                            required="true"
                         />
                     </div>
                     <label
@@ -165,7 +165,7 @@ export default function TeacherReg() {
                         className="ml-2 text-sm font-medium text-gray-900"
                     >
                         I agree with the{" "}
-                        <a href="#" className="text-blue-600 hover:underline">
+                        <a required href="#" className="text-blue-600 hover:underline">
                             terms and conditions
                         </a>
                         .

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const GeneratedSchedule = ({ defenseSchedule, portals }) => {
@@ -78,7 +79,7 @@ const GeneratedSchedule = ({ defenseSchedule, portals }) => {
                                 Student Name
                             </th>
                             <th scope="col" className="px-6 py-3">
-                                Course Code
+                                Proposal URL
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Project Name
@@ -90,58 +91,61 @@ const GeneratedSchedule = ({ defenseSchedule, portals }) => {
                     </thead>
                     {generatedProjects
                         ? generatedProjects.map((project) => (
-                              <tbody key={project._id}>
-                                  <tr className="bg-white border-b hover:bg-gray-50">
-                                      <td className="px-6 py-4">
-                                          <div className="flex flex-col">
-                                              {!project.date ||
-                                              !project.time ? (
-                                                  <span>
-                                                      Tumader defense dite hobe
-                                                      na
-                                                  </span>
-                                              ) : (
-                                                  <>
-                                                      <span>
-                                                          {project.date}
-                                                      </span>
+                            <tbody key={project._id}>
+                                <tr className="bg-white border-b hover:bg-gray-50">
+                                    <td className="px-6 py-4">
+                                        <div className="flex flex-col">
+                                            {!project.date ||
+                                                !project.time ? (
+                                                <span>
+                                                    Tumader defense dite hobe
+                                                    na
+                                                </span>
+                                            ) : (
+                                                <>
+                                                    <span>
+                                                        {project.date}
+                                                    </span>
 
-                                                      <span>
-                                                          {project.time}
-                                                      </span>
-                                                  </>
-                                              )}
-                                          </div>
-                                      </td>
-                                      <td className="px-6 py-4">
-                                          {project.leader.email}
-                                          <br />
-                                          {JSON.stringify(project.members)}
-                                          <br />
-                                          {JSON.stringify(project.members)}
-                                      </td>
-                                      <td className="px-6 py-4">
-                                          {project.leader.name}
-                                          <br />
-                                          {JSON.stringify(project.members)}
-                                          <br />
-                                          {JSON.stringify(project.members)}
-                                      </td>
-                                      <td className="px-6 py-4">
-                                          {JSON.stringify(project.courseCode)}
-                                      </td>
-                                      <td className="px-6 py-4">
-                                          {JSON.stringify(project.projectTitle)}
-                                      </td>
-                                      <td className="px-6 py-4">
-                                          {JSON.stringify(
-                                              project.supervisorPreference[0]
-                                                  .name
-                                          )}
-                                      </td>
-                                  </tr>
-                              </tbody>
-                          ))
+                                                    <span>
+                                                        {project.time}
+                                                    </span>
+                                                </>
+                                            )}
+                                        </div>
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {project.leader.email}
+                                        <br />
+                                        {project.members[0]?.email}
+                                        <br />
+                                        {project.members[1]?.email}
+
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {project.leader.name}
+                                        <br />
+                                        {project.members[0]?.name}
+                                        <br />
+                                        {project.members[1]?.name}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {/* <Link href={project.proposalUrl}>PDF</Link> */}
+                                        <a className="text-blue-400 font-bold" target="_blank" rel="noopener noreferrer" href={project.proposalUrl}>Proposal PDF</a>
+
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {JSON.stringify(project.projectTitle)}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {JSON.stringify(
+                                            project.supervisorPreference[0]
+                                                .name
+                                        )}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        ))
                         : null}
                 </table>
                 <button

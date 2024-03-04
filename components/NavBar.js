@@ -5,7 +5,7 @@ import { IoSettings } from "react-icons/io5";
 import { useAuth } from "../context/AuthProvider";
 
 const NavBar = () => {
-    const currentUserName = useAuth().currentUser.displayName;
+    const currentUserName = useAuth().currentUser?.displayName;
     const { logOut } = useAuth();
     const auth = useAuth();
 

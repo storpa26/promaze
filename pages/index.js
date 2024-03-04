@@ -15,21 +15,23 @@ import SupervisorDashboard from "../components/DashboardComponent/SupervisorDash
 import HeaderComponent from "../components/HeaderComponent/HeaderComponent";
 import EachStudent from "../components/StudentList/EachStudent";
 import FooterComponent from "../components/FooterComponent/FooterComponent";
+import StudentDashboard from "../components/DashboardComponent/StudentDashboard";
 const Index = () => {
     return (
         <div>
             {/* <HeaderComponent /> */}
-            <HomePage />
+            {/* <HomePage /> */}
             {/* <SearchBar /> */}
             {/* <EachStudent /> */}
             {/* <SupervisorDashboard /> */}
             {/* <NotificationBoard /> */}
-            {/* <DefSchedule /> */}
+            <DefSchedule />
             {/* <OpenPortal /> */}
             {/* <CommitteeDashboard /> */}
             {/* <ProgressBar /> */}
             {/* <CommitteeSidebar /> */}
             {/* <FooterComponent />  */}
+            {/* <StudentDashboard /> */}
         </div>
     );
 };
